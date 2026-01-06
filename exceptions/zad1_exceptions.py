@@ -43,12 +43,14 @@ class FileHandlerError(Exception):
     pass
 
 class InvalidFilePathError(FileHandlerError):
+    ERROR = "File path cannot be empty and must be a string"
     def __str__(self):
-        return "File path cannot be empty and must be a string"
+        return InvalidFilePathError.ERROR
 
 class InvalidFileSizeError(FileHandlerError):
+    ERROR = "Max file size need to be at least 4 digit"
     def __str__(self):
-        return "Max file size need to be at least 4 digit"
+        return InvalidFileSizeError.ERROR
 
 class InvalidConnectorCountError(FileHandlerError):
     def __init__(self, _no_connectors):
